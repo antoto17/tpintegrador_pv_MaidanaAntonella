@@ -18,14 +18,6 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <RutaProtegida>
-            <ListaClientes />
-          </RutaProtegida>
-        )
-      },
-      {
-        path: 'dashboard',
-        element: (
-          <RutaProtegida>
             <Dashboard />
           </RutaProtegida>
         )
