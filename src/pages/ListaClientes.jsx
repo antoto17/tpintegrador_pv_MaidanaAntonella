@@ -1,30 +1,34 @@
-import "../css/listaclientes.css"
+import "../css/listaclientes.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FormCliente from "../components/FormCliente";
+import clientesService from "../services/clientesService";
 
 const ListaClientes = () => {
+
   const [clientes, setClientes] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const cargarClientes = async () => {
+    try {
+      setLoading(true);
+
+      const data = await clientesService.obtenerClientes();
+
+      setClientes(data);
+
+    } catch {
+      setError(true);
+
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    fetch("https://fakestoreapi.com/users")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Error al obtener clientes");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setClientes(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
-      });
+    cargarClientes();
   }, []);
 
   const clientesFiltrados = clientes.filter(
@@ -49,7 +53,8 @@ const ListaClientes = () => {
     <div className="clientes-container">
 
       <h1>Clientes</h1>
-      <FormCliente />
+
+      <FormCliente onClienteCreado={cargarClientes} />
 
       <hr />
 
@@ -72,6 +77,7 @@ const ListaClientes = () => {
         </p>
 
       </div>
+
       <table className="tabla-clientes">
 
         <thead>
