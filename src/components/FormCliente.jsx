@@ -1,6 +1,9 @@
 import '../css/formcliente.css'
+
 import { useState } from "react";
+
 import { Form, Button, Alert, Spinner } from "react-bootstrap";
+
 import clientesService from "../services/clientesService";
 
 const FormCliente = ({ onClienteCreado }) => {
@@ -67,8 +70,8 @@ const FormCliente = ({ onClienteCreado }) => {
 
         e.preventDefault();
 
-        setMensaje("");
         setError("");
+        setMensaje("");
 
         const errorValidacion = validar();
 
@@ -95,18 +98,23 @@ const FormCliente = ({ onClienteCreado }) => {
 
             setLoading(true);
 
-            const respuesta = await clientesService.crearCliente(nuevoCliente);
-
-            setMensaje(
-                `Cliente creado correctamente. ID: ${respuesta.id}`
-            );
-
-            onClienteCreado(respuesta);
+            const respuesta =
+                await clientesService.crearCliente(nuevoCliente);
 
             setNombre("");
             setEmail("");
             setTelefono("");
             setCiudad("");
+
+            setMensaje(
+                `Cliente creado correctamente. ID: ${respuesta.id}`
+            );
+
+            setTimeout(() => {
+                setMensaje("");
+            }, 3000);
+
+            onClienteCreado(respuesta);
 
         } catch {
 
@@ -120,13 +128,15 @@ const FormCliente = ({ onClienteCreado }) => {
     };
 
     return (
-        <div className='formulario-cliente'>
+
+        <div className="formulario-cliente">
 
             <h3>Nuevo Cliente</h3>
 
             <Form onSubmit={manejarSubmit}>
 
                 <Form.Group className="mb-3">
+
                     <Form.Label>Nombre</Form.Label>
 
                     <Form.Control
@@ -134,9 +144,11 @@ const FormCliente = ({ onClienteCreado }) => {
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}
                     />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3">
+
                     <Form.Label>Email</Form.Label>
 
                     <Form.Control
@@ -144,9 +156,11 @@ const FormCliente = ({ onClienteCreado }) => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3">
+
                     <Form.Label>Teléfono</Form.Label>
 
                     <Form.Control
@@ -154,9 +168,11 @@ const FormCliente = ({ onClienteCreado }) => {
                         value={telefono}
                         onChange={(e) => setTelefono(e.target.value)}
                     />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3">
+
                     <Form.Label>Ciudad</Form.Label>
 
                     <Form.Control
@@ -164,6 +180,7 @@ const FormCliente = ({ onClienteCreado }) => {
                         value={ciudad}
                         onChange={(e) => setCiudad(e.target.value)}
                     />
+
                 </Form.Group>
 
                 <Button
@@ -171,24 +188,30 @@ const FormCliente = ({ onClienteCreado }) => {
                     type="submit"
                     disabled={loading}
                 >
+
                     {loading
                         ? <Spinner size="sm" />
                         : "Guardar Cliente"
                     }
+
                 </Button>
 
             </Form>
 
             {mensaje && (
+
                 <Alert className="mt-3" variant="success">
                     {mensaje}
                 </Alert>
+
             )}
 
             {error && (
+
                 <Alert className="mt-3" variant="danger">
                     {error}
                 </Alert>
+
             )}
 
         </div>

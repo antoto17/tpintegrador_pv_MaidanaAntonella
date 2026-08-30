@@ -1,58 +1,123 @@
-.detalle-cliente{
-    background:white;
-    max-width:850px;
-    margin:40px auto;
-    padding:40px;
-    border-radius:22px;
-    box-shadow:0px 15px 35px rgba(214,51,132,.12);
+.detalle-cliente {
+  background: linear-gradient(135deg, #fff, #fff5fa);
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 24px;
+  border: 2px solid #ffd6e7;
+  box-shadow: 0 12px 35px rgba(214, 51, 132, 0.15);
 }
 
-.detalle-cliente h1{
-    text-align:center;
-    margin-bottom:35px;
-    color:#d63384;
+.detalle-cliente h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d63384;
+  font-size: 32px;
 }
 
-.detalle-cliente h2{
-    margin-top:30px;
-    padding-bottom:8px;
-    border-bottom:2px solid #ffd6e7;
-    color:#c2185b;
+.detalle-cliente h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  color: #c2185b;
+  background: #fff0f6;
+  border-left: 5px solid #d63384;
+  border-radius: 10px;
 }
 
-.detalle-cliente p{
-    margin:12px 0;
-    color:#5f4b57;
+.detalle-cliente p {
+  margin: 14px 0;
+  padding: 10px 14px;
+  color: #5f4b57;
+  font-size: 17px;
+  background: #fff9fc;
+  border-radius: 10px;
 }
 
-.detalle-cliente strong{
-    color:#d63384;
+.detalle-cliente strong {
+  color: #d63384;
 }
 
-.btn-eliminar{
-    margin-top:25px;
-    background:#dc3545;
-    color:white;
-    border:none;
-    border-radius:10px;
-    padding:10px 20px;
-    width:100%;
-    font-weight:600;
-    transition:.3s;
+.detalle-cliente input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 4px;
+  border: 2px solid #f3b6cf;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  background: white;
+  transition: 0.3s;
+  box-sizing: border-box;
 }
 
-.btn-eliminar:hover{
-    background:#bb2d3b;
-    transform:scale(1.02);
+.detalle-cliente input:focus {
+  border-color: #d63384;
+  box-shadow: 0 0 0 4px rgba(214, 51, 132, 0.12);
 }
-.mensaje-eliminado{
-    background:#d4edda;
-    color:#155724;
-    border:1px solid #b8dfc2;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:25px;
+
+.detalle-cliente button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #d63384;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.detalle-cliente button:hover {
+  background: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(214, 51, 132, 0.25);
+}
+
+.btn-eliminar {
+  background: #dc3545 !important;
+}
+
+.btn-eliminar:hover {
+  background: #bb2d3b !important;
+}
+
+.error {
+  color: #dc3545 !important;
+  background: #fff0f2 !important;
+  border: 1px solid #f5c2c7;
+  font-size: 14px !important;
+  margin-top: 0 !important;
+  min-height: 18px;
+}
+
+.mensaje-eliminado {
+  background: #e8f8ee !important;
+  color: #198754 !important;
+  border: 2px solid #b7e4c7;
+  padding: 15px !important;
+  border-radius: 12px !important;
+  text-align: center;
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-bottom: 25px !important;
+  box-shadow: 0 5px 15px rgba(25, 135, 84, 0.1);
+}
+
+@media (max-width: 600px) {
+  .detalle-cliente {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .detalle-cliente h1 {
+    font-size: 26px;
+  }
+
+  .detalle-cliente button {
+    width: 100%;
+    margin-right: 0;
+  }
 }

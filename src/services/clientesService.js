@@ -80,6 +80,26 @@ const crearCliente = async (cliente) => {
 
     return nuevoCliente;
 };
+const modificarCliente = async (id, datosModificados) => {
+
+    const cliente = clientes.find(
+        (c) =>
+            String(c.id) === String(id) &&
+            c.disponible !== false
+    );
+
+    if (!cliente) {
+        return null;
+    }
+
+    await axios.put(`${URL}/${id}`, datosModificados);
+
+    Object.assign(cliente, datosModificados);
+
+    guardarClientes();
+
+    return cliente;
+};
 
 const eliminarCliente = async (id) => {
 
@@ -96,8 +116,7 @@ const eliminarCliente = async (id) => {
     try {
         await axios.delete(`${URL}/${id}`);
     } catch {
-        // Aunque la API no encuentre el ID,
-        // se elimina igualmente de nuestro sistema.
+        
     }
 
     cliente.disponible = false;
@@ -129,6 +148,7 @@ export default {
     obtenerClientes,
     obtenerCliente,
     crearCliente,
+    modificarCliente,
     eliminarCliente,
     obtenerEstadisticas
 };

@@ -1,122 +1,298 @@
 .clientes-container{
+
     background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0px 10px 25px rgba(214,51,132,.10);
+
+    padding:25px;
+
+    border-radius:24px;
+
+    border:2px solid #ffd6e7;
+
+    box-shadow:0px 15px 35px rgba(214,51,132,.12);
+
 }
 
 .clientes-container h1{
+
     text-align:center;
-    margin-bottom:25px;
+
+    margin-bottom:20px;
+
+    color:#c2185b;
+
+    font-size:30px;
+
 }
 
 .contenedor-buscador{
-    background:#d63384;
-    width:700px;
+
+    background:linear-gradient(135deg,#d63384,#e85d9e);
+
+    width:650px;
+
     max-width:100%;
-    margin:30px auto;
-    padding:25px;
+
+    margin:15px auto;
+
+    padding:18px 22px;
+
     border-radius:18px;
-    box-shadow:0px 10px 25px rgba(214,51,132,.18);
+
+    border:2px solid #f5a6c7;
+
+    box-shadow:0px 8px 22px rgba(214,51,132,.18);
+
 }
 
 .titulo-buscador{
+
     color:white;
+
     text-align:center;
-    margin-bottom:18px;
+
+    margin-bottom:12px;
+
+    font-size:19px;
+
 }
 
 .buscador{
+
     width:100%;
-    padding:14px;
-    border:none;
+
+    padding:11px 18px;
+
+    border:3px solid transparent;
+
     border-radius:30px;
+
     font-size:15px;
+
+    background:white;
+
+    transition:.25s;
+
 }
 
 .buscador:focus{
+
     outline:none;
+
+    border-color:#ffb6d5;
+
+    box-shadow:0px 0px 10px rgba(255,255,255,.7);
+
 }
 
 .cantidad-clientes{
+
     text-align:center;
+
     color:white;
-    margin-top:15px;
+
+    margin-top:10px;
+
     font-weight:600;
-}
 
-.btn-ficha{
-    display:inline-block;
-    background:#d63384;
-    color:white;
-    padding:8px 16px;
-    border-radius:10px;
-    transition:.25s;
-}
+    font-size:15px;
 
-.btn-ficha:hover{
-    background:#c2185b;
-    color:white;
 }
 
 table{
+
     width:100%;
-    border-collapse:collapse;
+
+    border-collapse:separate;
+
+    border-spacing:0;
+
     background:white;
+
+    border:2px solid #ffd6e7;
+
     border-radius:18px;
+
     overflow:hidden;
-    box-shadow:0px 12px 30px rgba(214,51,132,.10);
-    margin-top:25px;
+
+    box-shadow:0px 10px 25px rgba(214,51,132,.10);
+
+    margin-top:20px;
+
 }
 
 thead{
-    background:#d63384;
+
+    background:linear-gradient(135deg,#d63384,#c2185b);
+
 }
 
 thead th{
+
     color:white;
-    padding:18px;
-    font-weight:600;
+
+    padding:14px;
+
+    font-weight:700;
+
     text-align:center;
+
+    font-size:15px;
+
 }
 
 tbody td{
-    padding:16px;
+
+    padding:12px;
+
     text-align:center;
+
     border-bottom:1px solid #ffe3ef;
+
+    color:#5f4b57;
+
 }
 
 tbody tr:nth-child(even){
+
     background:#fff7fa;
+
 }
 
 tbody tr{
-    transition:.25s;
+
+    transition:.2s;
+
 }
 
 tbody tr:hover{
-    background:#ffeef5;
+
+    background:#ffe5f0;
+
+    box-shadow:inset 5px 0px #d63384;
+
+}
+
+.btn-ficha{
+
+    display:inline-block;
+
+    background:#d63384;
+
+    color:white;
+
+    padding:8px 15px;
+
+    border-radius:10px;
+
+    border:2px solid #d63384;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.btn-ficha:hover{
+
+    background:white;
+
+    color:#c2185b;
+
+    border-color:#c2185b;
+
+    transform:translateY(-2px);
+
+    box-shadow:0px 5px 12px rgba(214,51,132,.2);
+
 }
 
 table a{
+
     display:inline-block;
+
     background:#d63384;
+
     color:white;
-    padding:8px 16px;
+
+    padding:8px 15px;
+
     border-radius:10px;
+
     font-size:14px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
     transition:.25s;
+
 }
 
 table a:hover{
+
     background:#c2185b;
-    transform:scale(1.05);
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:0px 5px 12px rgba(194,24,91,.25);
+
 }
 
 input[type="text"]{
+
     transition:.25s;
+
 }
 
 input[type="text"]::placeholder{
+
     color:#c78aa6;
-} 
+
+}
+.acciones-clientes{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
+}
+
+.btn-nuevo{
+
+    background:#d63384;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0px 6px 15px rgba(214,51,132,.18);
+
+}
+
+.btn-nuevo:hover{
+
+    background:#c2185b;
+
+    transform:translateY(-2px);
+
+    box-shadow:0px 8px 18px rgba(214,51,132,.25);
+
+}

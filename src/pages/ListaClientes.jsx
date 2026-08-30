@@ -8,11 +8,15 @@ const ListaClientes = () => {
 
   const [clientes, setClientes] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const cargarClientes = async () => {
+
     try {
+
       setLoading(true);
 
       const data = await clientesService.obtenerClientes();
@@ -20,11 +24,15 @@ const ListaClientes = () => {
       setClientes(data);
 
     } catch {
+
       setError(true);
 
     } finally {
+
       setLoading(false);
+
     }
+
   };
 
   useEffect(() => {
@@ -41,6 +49,20 @@ const ListaClientes = () => {
         .includes(busqueda.toLowerCase())
   );
 
+  const clienteCreado = async () => {
+
+    await cargarClientes();
+
+    setMostrarFormulario(false);
+
+    setMensaje("✓ Cliente creado correctamente");
+
+    setTimeout(() => {
+      setMensaje("");
+    }, 3000);
+
+  };
+
   if (loading) {
     return <h2>Cargando clientes...</h2>;
   }
@@ -54,9 +76,28 @@ const ListaClientes = () => {
 
       <h1>Clientes</h1>
 
-      <FormCliente onClienteCreado={cargarClientes} />
+      {mensaje && (
+        <div className="mensaje-exito">
+          {mensaje}
+        </div>
+      )}
 
-      <hr />
+      <div className="acciones-clientes">
+
+        <button
+          className="btn-nuevo"
+          onClick={() => setMostrarFormulario(!mostrarFormulario)}
+        >
+          {mostrarFormulario ? "Cerrar formulario" : "Nuevo Cliente"}
+        </button>
+
+      </div>
+
+      {mostrarFormulario && (
+        <FormCliente
+          onClienteCreado={clienteCreado}
+        />
+      )}
 
       <div className="contenedor-buscador">
 
@@ -81,6 +122,7 @@ const ListaClientes = () => {
       <table className="tabla-clientes">
 
         <thead>
+
           <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -89,11 +131,13 @@ const ListaClientes = () => {
             <th>Ciudad</th>
             <th>Acciones</th>
           </tr>
+
         </thead>
 
         <tbody>
 
           {clientesFiltrados.map((cliente) => (
+
             <tr key={cliente.id}>
 
               <td>{cliente.id}</td>
@@ -109,15 +153,18 @@ const ListaClientes = () => {
               <td>{cliente.address.city}</td>
 
               <td>
+
                 <Link
                   className="btn-ficha"
                   to={`/clientes/${cliente.id}`}
                 >
-                  Ver Ficha Completa
+                  Ver Ficha
                 </Link>
+
               </td>
 
             </tr>
+
           ))}
 
         </tbody>
