@@ -48,54 +48,70 @@ const Login = () => {
   return (
     <div className="login-container">
 
-      <h1>Iniciar Sesión</h1>
+      <div className="login-card">
 
-      <form onSubmit={manejarSubmit}>
+        <div className="login-header">
+          <h1>Bienvenido al Sistema</h1>
 
-        <label>Email:</label>
+          <p>
+            Panel de Control de Clientes
+          </p>
 
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <span>
+            Ingresá tus datos para continuar
+          </span>
+        </div>
 
-        <p style={{ color: 'red', minHeight: '18px' }}>
-          {errores.email || ' '}
-        </p>
+        <form onSubmit={manejarSubmit}>
 
-        <label>Contraseña:</label>
+          <label>Email</label>
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Ingresá tu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <p style={{ color: 'red', minHeight: '18px' }}>
-          {errores.password || ' '}
-        </p>
+          <p className="error">
+            {errores.email || ' '}
+          </p>
 
-        <label>Sector:</label>
+          <label>Contraseña</label>
 
-        <select
-          value={sector}
-          onChange={(e) => setSector(e.target.value)}
-        >
-          <option value="">Seleccione un sector</option>
-          <option value="Soporte">Soporte</option>
-          <option value="Gerencia">Gerencia</option>
-        </select>
+          <input
+            type="password"
+            placeholder="Ingresá tu contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <p style={{ color: 'red', minHeight: '18px' }}>
-          {errores.sector || ' '}
-        </p>
+          <p className="error">
+            {errores.password || ' '}
+          </p>
 
-        <button type="submit">
-          Ingresar
-        </button>
+          <label>Sector</label>
 
-      </form>
+          <select
+            value={sector}
+            onChange={(e) => setSector(e.target.value)}
+          >
+            <option value="">Seleccione un sector</option>
+            <option value="Soporte">Soporte</option>
+            <option value="Gerencia">Gerencia</option>
+          </select>
+
+          <p className="error">
+            {errores.sector || ' '}
+          </p>
+
+          <button type="submit">
+            Ingresar
+          </button>
+
+        </form>
+
+      </div>
 
     </div>
   )

@@ -37,12 +37,12 @@ const router = createBrowserRouter([
             <DetalleCliente />
           </RutaProtegida>
         )
+      },
+      {
+        path: 'login',
+        element: <Login />
       }
     ]
-  },
-  {
-    path: '/login',
-    element: <Login />
   },
   {
     path: '*',
